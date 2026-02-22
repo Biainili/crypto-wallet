@@ -48,7 +48,7 @@ export function AppShell() {
                     <div className="mb-4 flex gap-3 sm:hidden">
                         {/* 80% */}
                         <Link
-                            to="/profile"
+                            to="/profile-settings"
                             className="flex-[4] flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 py-2 text-center text-sm"
                         >
                             <Settings className="h-4 w-4" />
