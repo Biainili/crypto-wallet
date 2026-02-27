@@ -7,6 +7,8 @@ import { BottomMenu } from "../components/BottomMenu";
 import { MarketUSDT } from "../components/MarketUSDT";
 import { useNavigate } from "react-router-dom";
 import { RefundModal } from "../components/RefundModal";
+import { Partners } from "../components/Partners";
+
 
 export function ProfilePage() {
   const { user } = useAuth();
@@ -98,7 +100,7 @@ export function ProfilePage() {
       </div>
 
       <div className="mt-4">
-        Our Partners
+        <Partners />
       </div>
 
     </div>

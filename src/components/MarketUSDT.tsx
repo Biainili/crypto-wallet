@@ -9,14 +9,16 @@ type Row = {
 };
 
 const DEFAULT_SYMBOLS = [
+    "USDCUSDT",
     "BTCUSDT",
     "ETHUSDT",
-    "DOGEUSDT",
-    "EOSUSDT",
-    "LTCUSDT",
-    "BCHUSDT",
+    "SOLUSDT",
     "XRPUSDT",
-    "ETCUSDT",
+    "BNBUSDT",
+    "TRXUSDT",
+    "LTCUSDT",
+    "TONUSDT",
+    "EURIUSDT",
 ];
 
 function fmtPrice(n: number) {
@@ -29,12 +31,14 @@ function fmtPrice(n: number) {
 const ICON_MAP: Record<string, string> = {
     BTC: "bitcoin-btc-logo.png",
     ETH: "ethereum-eth-logo.png",
-    DOGE: "dogecoin-doge-logo.png",
-    EOS: "eos-eos-logo.png",
-    LTC: "litecoin-ltc-logo.png",
-    BCH: "bitcoin-cash-bch-logo.png",
+    SOL: "solana-sol-logo.png",
     XRP: "xrp-xrp-logo.png",
-    ETC: "ethereum-classic-etc-logo.png",
+    BNB: "bnb-bnb-logo.png",
+    TRX: "tron-trx-logo.png",
+    LTC: "litecoin-ltc-logo.png",
+    TON: "toncoin-ton-logo.png",
+    USDC: "usd-coin-usdc-logo.png",
+    EURI: "euro-coin-euroc-logo.png",
 };
 
 function coinIconUrl(base: string) {

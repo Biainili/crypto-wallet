@@ -239,6 +239,8 @@ export const labels: Record<Lang, Record<string, string>> = {
     vipDayLimit: "Daily receiving limit",
     vipMonthLimit: "Monthly receiving limit",
     vipBuyHint: "Enter Key Password to confirm the purchase.",
+    ourPartners: "Our Partners",
+    trustedExchanges: "Trusted exchanges",
   },
   ru: {
     login: "Войти",
@@ -479,6 +481,8 @@ export const labels: Record<Lang, Record<string, string>> = {
     vipDayLimit: "Дневной лимит на получение",
     vipMonthLimit: "Месячный лимит на получение",
     vipBuyHint: "Введите Key Password для подтверждения покупки.",
+    ourPartners: "Наши партнёры",
+    trustedExchanges: "Надёжные биржи",
   },
   de: {
     login: "Anmelden",
@@ -718,5 +722,7 @@ export const labels: Record<Lang, Record<string, string>> = {
     vipDayLimit: "Tägliches Empfangslimit",
     vipMonthLimit: "Monatliches Empfangslimit",
     vipBuyHint: "Gib dein Key Password ein, um den Kauf zu bestätigen.",
+    ourPartners: "Unsere Partner",
+    trustedExchanges: "Vertrauenswürdige Börsen",
   },
 };
