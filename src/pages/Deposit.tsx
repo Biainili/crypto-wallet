@@ -4,8 +4,18 @@ import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 import { useLang } from "../context/LangContext";
 import { Button } from "../components/ui/Button";
 import { DepositAssetSelect, type DepositAsset } from "../components/ui/DepositAssetSelect";
+import { RecordsModal } from "../components/RecordsModal";
 
 export function DepositPage() {
+
+    const [recordsOpen, setRecordsOpen] = useState(false);
+
+    const depositRecords = [
+        { id: "d1", kind: "deposit" as const, amount: "120.00 USDT", network: "TRC20-USDT", time: "Today 12:30", status: "Success" as const },
+        { id: "d2", kind: "deposit" as const, amount: "50.00 USDT", network: "ERC20-USDT", time: "Yesterday 18:10", status: "Pending" as const },
+    ];
+
+
     const nav = useNavigate();
     const { t } = useLang();
 
@@ -40,7 +50,7 @@ export function DepositPage() {
                     <button
                         type="button"
                         className="text-sm text-violet-400/90 hover:text-violet-400/70 transition"
-                        onClick={() => nav("/deposit-records")}
+                        onClick={() => setRecordsOpen(true)}
                     >
                         {t("records")}
                     </button>
@@ -118,6 +128,12 @@ export function DepositPage() {
                     </Button>
                 </div>
             </div>
+            <RecordsModal
+                open={recordsOpen}
+                onClose={() => setRecordsOpen(false)}
+                title={t("depositRecordsTitle")}
+                items={depositRecords}
+            />
         </div>
     );
 }

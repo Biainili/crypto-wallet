@@ -241,6 +241,9 @@ export const labels: Record<Lang, Record<string, string>> = {
     vipBuyHint: "Enter Key Password to confirm the purchase.",
     ourPartners: "Our Partners",
     trustedExchanges: "Trusted exchanges",
+    depositRecordsTitle: "Deposit Records",
+    withdrawRecordsTitle: "Withdraw Records",
+    noRecordsYet: "No records yet.",
   },
   ru: {
     login: "Войти",
@@ -483,6 +486,9 @@ export const labels: Record<Lang, Record<string, string>> = {
     vipBuyHint: "Введите Key Password для подтверждения покупки.",
     ourPartners: "Наши партнёры",
     trustedExchanges: "Надёжные биржи",
+    depositRecordsTitle: "Записи пополнений",
+    withdrawRecordsTitle: "Записи выводов",
+    noRecordsYet: "Пока нет записей.",
   },
   de: {
     login: "Anmelden",
@@ -724,5 +730,8 @@ export const labels: Record<Lang, Record<string, string>> = {
     vipBuyHint: "Gib dein Key Password ein, um den Kauf zu bestätigen.",
     ourPartners: "Unsere Partner",
     trustedExchanges: "Vertrauenswürdige Börsen",
+    depositRecordsTitle: "Einzahlungsverlauf",
+    withdrawRecordsTitle: "Auszahlungsverlauf",
+    noRecordsYet: "Noch keine Einträge.",
   },
 };

@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
+import trcUsdt from "../../assets/network-icons/trc_usdt.png";
+import erc20Usdt from "../../assets/network-icons/erc20_usdt.png";
+import eth from "../../assets/network-icons/eth.png";
+
 export type Network = "TRC20-USDT" | "ERC20-USDT" | "ETH";
 
 const OPTIONS: { value: Network; label: string }[] = [
@@ -7,6 +11,12 @@ const OPTIONS: { value: Network; label: string }[] = [
     { value: "ERC20-USDT", label: "ERC20-USDT" },
     { value: "ETH", label: "ETH" },
 ];
+
+const ICONS: Record<Network, string> = {
+    "TRC20-USDT": trcUsdt,
+    "ERC20-USDT": erc20Usdt,
+    ETH: eth,
+};
 
 export function NetworkSelect({
     label,
@@ -41,7 +51,14 @@ export function NetworkSelect({
             >
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="h-8 w-8 rounded-full border border-white/10 bg-white/5" />
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 overflow-hidden">
+                            <img
+                                src={ICONS[value]}
+                                alt={value}
+                                className="h-8 w-8 object-cover"
+                                loading="lazy"
+                            />
+                        </div>
                         <span className="font-semibold">{value}</span>
                     </div>
                     <span className="text-white/60">▾</span>
@@ -66,14 +83,23 @@ export function NetworkSelect({
                                 ].join(" ")}
                             >
                                 <div className="flex items-center gap-3">
-                                    <div className="h-8 w-8 rounded-full border border-white/10 bg-white/5" />
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 overflow-hidden">
+                                        <img
+                                            src={ICONS[opt.value]}
+                                            alt={opt.value}
+                                            className="h-8 w-8 object-cover"
+                                            loading="lazy"
+                                        />
+                                    </div>
                                     <span className="font-semibold text-white/90">{opt.label}</span>
                                 </div>
 
                                 <div
                                     className={[
                                         "h-4 w-4 rounded-full border",
-                                        active ? "border-violet-300 bg-violet-400/60" : "border-white/20 bg-transparent",
+                                        active
+                                            ? "border-violet-300 bg-violet-400/60"
+                                            : "border-white/20 bg-transparent",
                                     ].join(" ")}
                                 />
                             </button>

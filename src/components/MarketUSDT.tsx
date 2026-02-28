@@ -172,22 +172,7 @@ export function MarketUSDT({
                         >
                             {/* left: icon + pair */}
                             <div className="flex items-center gap-3 min-w-0">
-                                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 overflow-hidden">
-                                    {coinIconUrl(r.base) ? (
-                                        <img
-                                            src={coinIconUrl(r.base) as string}
-                                            alt={r.base}
-                                            className="h-10 w-10 object-cover"
-                                            loading="lazy"
-                                            onError={(e) => {
-                                                // если CDN не дал картинку — скрываем img и покажем fallback через data-атрибут
-                                                (e.currentTarget as HTMLImageElement).style.display = "none";
-                                            }}
-                                        />
-                                    ) : (
-                                        <span className="text-sm font-semibold text-white/80">{r.base.slice(0, 1)}</span>
-                                    )}
-                                </div>
+                                <CoinIcon base={r.base} />
                                 <div className="min-w-0">
                                     <div className="truncate ss:text-lg text-sm font-semibold text-white">{r.base}/USDT</div>
                                 </div>
@@ -228,6 +213,30 @@ export function MarketUSDT({
                     </div>
                 )}
             </div>
+        </div>
+    );
+}
+
+function CoinIcon({ base }: { base: string }) {
+    const [broken, setBroken] = useState(false);
+    const url = coinIconUrl(base);
+
+    return (
+        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 overflow-hidden">
+            {url && !broken ? (
+                <img
+                    src={url}
+                    alt={base}
+                    className="h-10 w-10 object-cover"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    onError={() => setBroken(true)}
+                />
+            ) : (
+                <span className="text-sm font-semibold text-white/80">
+                    {base.slice(0, 1)}
+                </span>
+            )}
         </div>
     );
 }

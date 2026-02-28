@@ -4,8 +4,18 @@ import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 import { useLang } from "../context/LangContext";
 import { Button } from "../components/ui/Button";
 import { NetworkSelect, type Network } from "../components/ui/NetworkSelect";
+import { RecordsModal } from "../components/RecordsModal";
 
 export function WithdrawPage() {
+
+    const [recordsOpen, setRecordsOpen] = useState(false);
+
+    const withdrawRecords = [
+        { id: "w1", kind: "withdraw" as const, amount: "30.00 USDT", network: "TRC20-USDT", time: "Today 09:05", status: "Success" as const },
+        { id: "w2", kind: "withdraw" as const, amount: "15.00 USDT", network: "ERC20-USDT", time: "Yesterday 20:40", status: "Failed" as const },
+    ];
+
+
     const nav = useNavigate();
     const { t } = useLang();
 
@@ -49,7 +59,7 @@ export function WithdrawPage() {
                     <button
                         type="button"
                         className="text-sm text-violet-400/90 hover:text-violet-400/70 transition"
-                        onClick={() => nav("/withdraw-records")}
+                        onClick={() => setRecordsOpen(true)}
                     >
                         {t("records")}
                     </button>
@@ -138,6 +148,12 @@ export function WithdrawPage() {
                     </Button>
                 </div>
             </div>
+            <RecordsModal
+                open={recordsOpen}
+                onClose={() => setRecordsOpen(false)}
+                title={t("withdrawRecordsTitle")}
+                items={withdrawRecords}
+            />
         </div>
     );
 }

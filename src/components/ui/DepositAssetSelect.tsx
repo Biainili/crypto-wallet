@@ -1,4 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import bnbUsdt from "../../assets/network-icons/bnb_usdt.png";
+import bscUsdc from "../../assets/network-icons/bsc_usdc.png";
+import bscUsdt from "../../assets/network-icons/bsc_usdt.png";
+import erc20Usdc from "../../assets/network-icons/erc20_usdc.png";
+import erc20Usdt from "../../assets/network-icons/erc20_usdt.png";
+import eth from "../../assets/network-icons/eth.png";
+import trcUsdt from "../../assets/network-icons/trc_usdt.png";
 
 export type DepositAsset =
     | "ERC20-USDT"
@@ -19,19 +26,16 @@ const OPTIONS: { value: DepositAsset; label: string }[] = [
     { value: "TRC20-USDT", label: "TRC20-USDT" },
 ];
 
-function iconKind(value: DepositAsset) {
-    if (value.startsWith("TRC20")) return "tron";
-    if (value.startsWith("BEP20") || value === "BNB") return "bnb";
-    if (value.startsWith("ERC20") || value === "ETH") return "eth";
-    return "default";
-}
+const ICONS: Record<DepositAsset, string> = {
+    "ERC20-USDT": erc20Usdt,
+    "BEP20-USDT": bscUsdt,
+    "BEP20-USDC": bscUsdc,
+    BNB: bnbUsdt,
+    "ERC20-USDC": erc20Usdc,
+    ETH: eth,
+    "TRC20-USDT": trcUsdt,
+};
 
-function iconClass(kind: string) {
-    if (kind === "tron") return "bg-emerald-500/20";
-    if (kind === "bnb") return "bg-yellow-500/20";
-    if (kind === "eth") return "bg-white/10";
-    return "bg-white/5";
-}
 
 export function DepositAssetSelect({
     value,
@@ -62,12 +66,14 @@ export function DepositAssetSelect({
             >
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div
-                            className={[
-                                "h-10 w-10 rounded-full border border-white/10",
-                                iconClass(iconKind(value)),
-                            ].join(" ")}
-                        />
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 overflow-hidden">
+                            <img
+                                src={ICONS[value]}
+                                alt={value}
+                                className="h-10 w-10 object-cover"
+                                loading="lazy"
+                            />
+                        </div>
                         <span className="text-base font-semibold">{value}</span>
                     </div>
                     <span className="text-white/60">▾</span>
@@ -92,12 +98,14 @@ export function DepositAssetSelect({
                                 ].join(" ")}
                             >
                                 <div className="flex items-center gap-3">
-                                    <div
-                                        className={[
-                                            "h-10 w-10 rounded-full border border-white/10",
-                                            iconClass(iconKind(opt.value)),
-                                        ].join(" ")}
-                                    />
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 overflow-hidden">
+                                        <img
+                                            src={ICONS[opt.value]}
+                                            alt={opt.value}
+                                            className="h-10 w-10 object-cover"
+                                            loading="lazy"
+                                        />
+                                    </div>
                                     <span className="text-base font-semibold text-white/90">
                                         {opt.label}
                                     </span>
