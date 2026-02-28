@@ -82,7 +82,7 @@ export function VipBuyModal({
                         value={keyPassword}
                         onChange={(e) => setKeyPassword(e.target.value)}
                         placeholder={t("pleaseEnterKeyPassword")}
-                        className="w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-3 pr-12 text-sm text-white/90 outline-none
+                        className="w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-3 pr-12 text-base text-white/90 outline-none
                        focus:border-violet-400/50 focus:ring-2 focus:ring-violet-400/20"
                     />
                     <button

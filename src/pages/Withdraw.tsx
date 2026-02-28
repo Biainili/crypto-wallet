@@ -78,7 +78,7 @@ export function WithdrawPage() {
                         value={amount}
                         onChange={(e) => setAmount(e.target.value.replace(/[^0-9.]/g, ""))}
                         placeholder={t("withdrawAmountPlaceholder")}
-                        className="w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-3 text-sm text-white/90 outline-none
+                        className="w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-3 text-base text-white/90 outline-none
                        focus:border-violet-400/50 focus:ring-2 focus:ring-violet-400/20"
                     />
                 </div>
@@ -90,7 +90,7 @@ export function WithdrawPage() {
                         value={walletAddress}
                         onChange={(e) => setWalletAddress(e.target.value)}
                         placeholder={t("walletAddressPlaceholder")}
-                        className="w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-3 text-sm text-white/90 outline-none
+                        className="w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-3 text-base text-white/90 outline-none
                        focus:border-violet-400/50 focus:ring-2 focus:ring-violet-400/20"
                     />
                 </div>
@@ -103,7 +103,7 @@ export function WithdrawPage() {
                         value={keyPassword}
                         onChange={(e) => setKeyPassword(e.target.value)}
                         placeholder={t("pleaseEnterKeyPassword")}
-                        className="w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-3 pr-12 text-sm text-white/90 outline-none
+                        className="w-full rounded-2xl border border-white/10 bg-black/20 px-3 py-3 pr-12 text-base text-white/90 outline-none
                        focus:border-violet-400/50 focus:ring-2 focus:ring-violet-400/20"
                     />
                     <button
